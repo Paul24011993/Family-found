@@ -1,0 +1,57 @@
+{
+	"success":true,
+	"data":{
+		"menu":[{
+			"MEN_DESCRIPCION":"Inventario",
+			"MEN_ICONO":"fa fa-tasks",
+			"submenu":[{
+				"SUB_DESCRIPCION":"Mano de obra",
+				"SUB_LINK":"labour/"
+				},{
+				"SUB_DESCRIPCION":"Lubricantes",
+				"SUB_LINK":"lubricants/"
+				},{
+				"SUB_DESCRIPCION":"Repuestos",
+				"SUB_LINK":"SpareParts/"
+			}]
+			},{
+			"MEN_DESCRIPCION":"Proformas",
+			"MEN_ICONO":"fa fa-file-o",
+			"submenu":[{
+				"SUB_DESCRIPCION":"Empresas publicas",
+				"SUB_LINK":"proforms/"
+			}]
+			},{
+			"MEN_DESCRIPCION":"Informes",
+			"MEN_ICONO":"fa fa-file-pdf-o",
+			"submenu":[{
+				"SUB_DESCRIPCION":"Consolidado",
+				"SUB_LINK":"consolidated/"
+			}]
+			},{
+			"MEN_DESCRIPCION":"Configuracion",
+			"MEN_ICONO":"fa fa-cog",
+			"submenu":[{
+				"SUB_DESCRIPCION":"Empresas",
+				"SUB_LINK":"empresas/"
+			}]
+			},{
+			"MEN_DESCRIPCION":"Marcas de vehiculos",
+			"MEN_ICONO":"fa fa-car",
+			"submenu":[{
+				"SUB_DESCRIPCION":"Marcas de vehiculos",
+				"SUB_LINK":"brands/"
+			}]
+			},{
+			"MEN_DESCRIPCION":"Administrar accesos",
+			"MEN_ICONO":"fa fa-sign-in",
+			"submenu":[{
+				"SUB_DESCRIPCION":"Perfiles",
+				"SUB_LINK":"profiles/"
+				},{
+				"SUB_DESCRIPCION":"Usuarios",
+				"SUB_LINK":"users/"
+			}]
+		}]
+	}
+}

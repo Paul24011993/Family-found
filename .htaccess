@@ -1,0 +1,16 @@
+Options All Indexes
+
+RewriteEngine On
+
+#PERSONALIZAR URL
+RewriteRule ^([a-zA-Z0-9/=]+)$ index.php?views=$1
+
+#PAGINAS DE EROOR
+#ErrorDocument 404 /vistas/404.html
+#ErrorDocument 500 /ta-views/500.html
+
+#php_value session.gc_maxlifetime 7200
+#php_value session.cookie_lifetime 7200
+
+ 
+ 

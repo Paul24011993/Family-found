@@ -1,0 +1,38 @@
+{
+	"year": [
+		{
+			"name": "Enero",
+			"y": 72,
+			"drilldown": "Enero",
+			"data": [
+				["Lunes",  80.13],
+				["Martes",  99.2],
+				["Miercoles",  78.11],
+				["Jueves", 89.33]
+			]
+		},
+		{
+			"name": "Febrero",
+			"y": 4.03,
+			"drilldown": "Febrero",
+			"data": [
+				["Lunes", 1.3],
+				["Martes", 5.7],
+				["Miercoles", 9.6],
+				["Jueves", 8.5]
+			]
+		},
+		{
+			"name": "Marzo",
+			"y": 10.38,
+			"drilldown" : "Marzo",
+			"data": [
+				["Lunes", 5],
+				["Martes", 4.32],
+				["Miercoles", 3.68],
+				["Jueves", 2.96]
+			]
+		}
+	]
+	
+}
