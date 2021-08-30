@@ -1,4 +1,5 @@
 <?php
+
 	//Activa el almacenamiento en búfer de la salida
 	ob_start();
 
