@@ -1,6 +1,7 @@
 <?php
 
 	class viewsModels{
+
 		protected function get_views_models($views){
 			$menuList = array(
 				"home",
@@ -39,6 +40,25 @@
 					$content = "404";
 			}
 			return $content;
+		}
+
+		public function get_page_template($page){
+			$page_template = "";
+			$page_list = array("login", "404", "solicitarCuenta", "ingresarRandom", "cambiarClave", "activarUsuario");
+
+			if(in_array($page, $page_list)){
+				$page_template = self::get_content_page($page, $page_list);
+			}
+			return $page_template;
+		}
+		
+		public function get_content_page($page, $page_list){
+			if(in_array($page, $page_list)){
+				$route = $page;
+				}else{
+				$route = $page;
+			}
+			return require_once DIR_CONTENTS . $route . '.php';
 		}
 		
 	}	

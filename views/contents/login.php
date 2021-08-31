@@ -12,7 +12,7 @@
 		<h1 class="logo-name">Inicio de Sesión</h1>
 	</div>
 	<h3 class="mx-auto">Bienvenido</h3>
-	<form action="Users/auth/"  method="post" class="Form_login top15 w-100">
+	<form action="Home/login/"  method="post" class="Form_login top15 w-100">
 		<div class="form-group">
 			<input required="" placeholder="Username" name="user" id="user" class="form-control" type="text">
 		</div>

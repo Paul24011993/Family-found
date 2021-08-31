@@ -111,13 +111,13 @@
 
     //cargar el menu
     $.ajax({
-        url: SERVER_API + 'Profiles/get_main_menu/',
+        url: SERVER_API + 'Home/get_main_menu/',
         type: 'GET',
         success: function (response) {
-            let jsons = JSON.parse(response)
+            let jsons = JSON.parse(response).data.menu;
             let template = '';
             //console.log(jsons);
-            jsons.data.data.menu.forEach(json => {
+            jsons.forEach(json => {
                 template += `<li class="nav-item">
 								<a class="nav-link nav-toggle" href="javascript:;">
 									<i class="${json.MEN_ICONO}"></i>

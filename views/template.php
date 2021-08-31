@@ -1,19 +1,16 @@
 <?php
 
-	global $viewsControllers;
-	global $mainModel;
-
 	get_header(); 
 	
-	//Guardar en una variable la instancia de la clase viewsControllers.
-	$viewsLoad = $viewsControllers->get_views_controllers();
-	//die($viewsLoad);
+	/* Guardar en una variable la instancia de la clase viewsControllers. */
+	$viewsLoad = $GLOBALS['viewsControllers']->get_views_controllers();
 ?>
 <body <?php body_class($viewsLoad); ?>>		
 	<?php
-		$aux =$mainModel->get_page_template($viewsLoad);
-		if(!$aux):
-		validate_login_user($cookie = 'Token_user');
+		$page_template = $GLOBALS['viewsModels']->get_page_template($viewsLoad);
+		
+		if(1 !== $page_template):
+		validate_login_user();
 		include 'views/modules/top_bar.php'; 
 	?>
 		<div class="clearfix"> </div>

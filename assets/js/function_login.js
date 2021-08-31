@@ -21,7 +21,7 @@ $(document).ready(function(){
 			success: function (respuesta) {
 			var obj = $.parseJSON(respuesta);
 			
-			//console.log(obj.type);
+			//console.log(obj);
 				if(obj.type == 'success'){
 					var token = obj.data.token;
 					var user_image = obj.data.user_image;
@@ -50,7 +50,7 @@ $(document).ready(function(){
 					}
 
 				}else{
-				alert(obj.data.message);
+					swal("Error", obj.data, obj.type)
 				}
 			},
 			error: function() {
@@ -86,6 +86,11 @@ $(document).ready(function(){
 						document.cookie = "Token_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 						document.cookie = "user_image=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 						document.cookie = "user_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						document.cookie = "id_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						document.cookie = "first_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						document.cookie = "last_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						document.cookie = "profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						document.cookie = "id_profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 						window.location.href = SERVER_URL;
 					} else {

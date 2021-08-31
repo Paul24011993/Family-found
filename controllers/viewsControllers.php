@@ -3,7 +3,7 @@
 	class viewsControllers extends viewsModels{
 	
 		public function get_template_controller(){
-			return require_once 'views/template.php';
+			return require_once( dirname(__DIR__) . '/views/template.php' );
 		}
 		
 		public function get_views_controllers(){
