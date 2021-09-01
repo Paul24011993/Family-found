@@ -25,6 +25,7 @@
 					*/
 				
 					include $dir . $file;
+					//echo $dir . $file;
 				}
 			}
 		}
@@ -32,4 +33,5 @@
     
 	$GLOBALS["viewsControllers"] 	= new viewsControllers();
 	$GLOBALS["viewsModels"] 		= new viewsModels();
+	 
 ?>

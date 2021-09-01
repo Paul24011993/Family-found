@@ -36,6 +36,10 @@
 					$content = "login";
 				} else if($views == "index"){
 					$content = "login";
+				} else if($views == "forgotPassword"){
+					$content = "forgotPassword";
+				} else if($views == "changePassword"){
+					$content = "changePassword";
 				} else{
 					$content = "404";
 			}
@@ -44,7 +48,7 @@
 
 		public function get_page_template($page){
 			$page_template = "";
-			$page_list = array("login", "404", "solicitarCuenta", "ingresarRandom", "cambiarClave", "activarUsuario");
+			$page_list = array("login", "404", "forgotPassword", "changePassword", "ingresarRandom");
 
 			if(in_array($page, $page_list)){
 				$page_template = self::get_content_page($page, $page_list);

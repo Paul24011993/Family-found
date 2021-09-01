@@ -78,16 +78,18 @@
         enqueue_script('sweetalert2', SERVER_URL . 'assets/js/sweetalert2.min.js', '1.0');
         enqueue_script('jquery_mobile', SERVER_URL . 'assets/js/vendor/jquery.mobile.custom.min.js', '1.0');
         enqueue_script('jquery_slimscroll', SERVER_URL . 'assets/js/vendor/jquery.slimscroll.js', '1.0');
-        enqueue_script('main', SERVER_URL . 'assets/js/main.js', '1.0');
         enqueue_script('jquery-key-restrictions', SERVER_URL . 'assets/js/jquery-key-restrictions.js', '1.0');
+        enqueue_script('main', SERVER_URL . 'assets/js/main.js', '1.0');
         enqueue_script('adminbagdemo', SERVER_URL . 'assets/js/adminbagdemo.js', '1.0');
         
         if(is_user_logged_in()){
             enqueue_script('select2', SERVER_URL . 'assets/js/vendor/select2.min.js', '1.0');
             enqueue_script('main_function_ajax', SERVER_URL . 'assets/js/main_function_ajax.js', '1.0');
-
         }
 
+        if(is_page('forgotPassword', true)){
+            enqueue_script('forgotPassword', SERVER_URL . 'assets/js/forgotPassword.js', '1.0');
+        }
 
         if(is_page('profiles')){
             enqueue_script('jquery_dataTables', SERVER_URL . 'assets/js/vendor/jquery.dataTables.js', '1.0');

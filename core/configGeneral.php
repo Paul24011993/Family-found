@@ -25,11 +25,14 @@
     /* Definimos la ruta de todos los archivos*/
     define('SERVER_URL', $url );
 
-    /* Definimos la ruta alterna para todos los archivos*/
+    /* Definimos la ruta alterna para todos los modulos*/
     define('DIR_MODULES', ABSPATH . 'views/modules' );
 
-    /* Definimos la ruta alterna para todos los archivos*/
+    /* Definimos la ruta alterna para todos los contenidos*/
     define('DIR_CONTENTS', ABSPATH . 'views/contents/' );
+
+    /* Definimos la ruta alterna para todos los controladores*/
+    define('DIR_CONTROLLERS', $url . 'controllers/' );
 
     // Nombre del proyecto
 	define('NOMBRE_PROYECTO', 'FONDO FORTALEZA J&A 18 DE AGOSTO');

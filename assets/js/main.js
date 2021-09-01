@@ -451,7 +451,7 @@ function load_select_2(identifier, patch){
                 };
             },
             processResults: function (response) {
-                console.log(response);
+                //console.log(response);
                 return {
                     results: response
                 };
@@ -465,4 +465,23 @@ function load_select_2(identifier, patch){
 function reset_select(id_selector) {
     $(id_selector).val('');
     $(id_selector).trigger('change');
+}
+
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
+
+function send_email(arg) {
+ 
+
+    console.log(arg);
+    
+    $.get(atob(DIR_CONTROLLERS) + "sendEmailController.php", arg , function (data) {
+        var response = $.parseJSON(data);
+        return {
+            type: response.type,
+            data: response.data
+        };
+    });
 }

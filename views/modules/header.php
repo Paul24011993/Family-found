@@ -9,6 +9,7 @@
 		<script type="text/javascript">
 			const SERVER_API = "<?php echo SERVER_API ?>";
 			const SERVER_URL = "<?php echo SERVER_URL ?>";
+			const DIR_CONTROLLERS = "<?php echo base64_encode(DIR_CONTROLLERS) ?>";
 		</script>
 	</head>	
 	

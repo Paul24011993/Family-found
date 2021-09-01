@@ -20,7 +20,7 @@
 			<input required="" placeholder="Password" name="password" id="password" class="form-control" type="password">
 		</div>
 		<button class="btn aqua block full-width bottom15" id="login" type="submit">Iniciar Sesión</button>
-		<a href="forgot_password.html"><small>Olvidó su contraseña?</small></a>
+		<a href="<?php echo SERVER_URL ?>forgotPassword/""><small>Olvidó su contraseña?</small></a>
 		<div class="message"></div>
 	</form>
 	<p class=" copyR"> <small>Artias-Soft &copy; <?php echo date('Y'); ?></small> </p>
