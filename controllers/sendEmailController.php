@@ -6,17 +6,8 @@ $to  			= (!empty($_REQUEST['to'])) ? $_REQUEST['to'] : 'paulsandoval77@hotmail.
 $subject 		= (!empty($_REQUEST['subject'])) ? $_REQUEST['subject'] : 'Envio de correo';
 $template 		= (!empty($_REQUEST['template'])) ? $_REQUEST['template'] : 'mail_template';
 
-/* Obtener datos del usuario */
-$dataUser 		= json_decode($_REQUEST['dataUser']);
-
-$user_name 		= (!empty($dataUser->USU_NOMBRES)) ? $dataUser->USU_NOMBRES : '';
-$user_last_name = (!empty($dataUser->USU_APELLIDOS)) ? $dataUser->USU_APELLIDOS : '';
-$user_random 	= (!empty($dataUser->USU_RANDOM)) ? $dataUser->USU_RANDOM : '';
-$url_recovery 	= (!empty($_REQUEST['url_recovery'])) ? $_REQUEST['url_recovery'] : '#';
-
 /*
-var_export($dataUser); 
-var_export($_REQUEST); 
+//var_export($_REQUEST); 
 die('aqui');
 */
 
@@ -37,7 +28,8 @@ try {
 	// 0 = apagado (para producción)
 	// 1 = mensajes del cliente
 	// 2 = mensajes del cliente y servidor
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->SMTPDebug = 0;
+    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
 	// Agregando compatibilidad con HTML
 	$mail->Debugoutput = 'html';
@@ -70,15 +62,19 @@ try {
     $mail->addAddress($to);
 
 	$message = file_get_contents( ABSPATH . 'views/email_templates/' . $template . '.html');
-    
-	$message = str_replace('{title}', NOMBRE_PROYECTO , $message);
-	$message = str_replace('{logo}', 'img/logo-azul.png' , $message);
-	$message = str_replace('{user_name}', $user_name , $message);
-	$message = str_replace('{user_last_name}', $user_last_name , $message);
-	$message = str_replace('{user_random}', $user_random , $message);
-	$message = str_replace('{url_recovery}', $url_recovery , $message);
-	$message = str_replace('{email_to}', $$to , $message);
 	
+    $message = str_replace('{title}', NOMBRE_PROYECTO , $message);
+	$message = str_replace('{logo}', 'img/logo-azul.png' , $message);
+	
+	/* Obtener datos del usuario */
+	if(!empty(json_decode($_REQUEST['dataUser']))){
+		$dataUser 	= json_decode($_REQUEST['dataUser'], true);
+		
+		foreach($dataUser as $data_fiel => $val){
+			$message = str_replace('{'.$data_fiel.'}', $val , $message);
+		}
+	}
+
 	// Establecer el formato de correo electrónico en HTML
 	$mail->isHTML(true);
 
@@ -89,15 +85,14 @@ try {
     $mail->Subject = $subject;
 	$mail->CharSet = PHPMailer::CHARSET_UTF8;
 
-    $mail->send();
-    echo 'Message has been sent';
+    if($mail->send()){
+		die(json_encode(  array('type' => 'success',  'data' => true ) ) );
+	}
+	
+    //echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-
-
+	die(json_encode(  array('type' => 'error',  'data' => $mail->ErrorInfo ) ) );
 } catch (Exception $e) {
-    echo $e->errorMessage(); //Pretty error messages from PHPMailer
-} catch (\Exception $e) { //The leading slash means the Global PHP Exception class will be caught
-    echo $e->getMessage(); //Boring error messages from anything else!
+    die(json_encode(  array('type' => 'error',  'data' => $e->getMessage() ) ) );
 }
  

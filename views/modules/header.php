@@ -10,6 +10,7 @@
 			const SERVER_API = "<?php echo SERVER_API ?>";
 			const SERVER_URL = "<?php echo SERVER_URL ?>";
 			const DIR_CONTROLLERS = "<?php echo base64_encode(DIR_CONTROLLERS) ?>";
+			const IP_SERVER = "<?php echo base64_encode(IP_SERVER) ?>";
 		</script>
 	</head>	
 	

@@ -94,11 +94,38 @@
 
     function is_page($page, $page_whitouth_register = false){
         global $viewsControllers;
-        $route = explode('/', $viewsControllers->get_views_controllers());
-        $func_page = substr(end($route), 0, -4);
-        if($page == $func_page || $page_whitouth_register){
+        $func_page = $viewsControllers->get_views_controllers();
+        var_export($page);
+        if($func_page = $page ){
+            
             return true;
         }
+
+
+        /*
+
+        
+        $page = array($page);
+        
+        if($page_whitouth_register){
+            $func_page = $viewsControllers->get_views_controllers();
+        }else{
+            $route = explode('/', $viewsControllers->get_views_controllers());
+            $func_page = substr(end($route), 0, -4);
+        }
+        
+        if(in_array($func_page, $page)){
+            var_export($func_page);
+            return $func_page;
+            //var_export($viewsControllers->get_views_controllers());
+            //'changePassword''changePassword'
+        
+        }
+/*
+        if($func_page = $page || $page_whitouth_register){
+            
+            return true;
+        }*/
     }
 
     function encryption($string){

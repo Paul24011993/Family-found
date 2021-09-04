@@ -583,6 +583,40 @@ display: flex;
 flex-flow: row wrap;
 }*/
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#random {
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+  -webkit-transition: opacity 0.25s, width 0.25s;
+  -moz-transition: opacity 0.25s, width 0.25s;
+  -o-transition: opacity 0.25s, width 0.25s;
+  transition: opacity 0.25s, width 0.25s;
+}
+
+.has-spinner.active {
+  cursor: progress;
+}
+
+.has-spinner.active .spinner {
+  opacity: 1;
+  width: auto;
+}
+
+.has-spinner.btn.active .spinner {
+  min-width: 20px;
+}
+
 .center {
   -webkit-align-content: center;
   align-content: center;

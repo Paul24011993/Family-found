@@ -25,6 +25,8 @@
     /* Definimos la ruta de todos los archivos*/
     define('SERVER_URL', $url );
 
+    define('IP_SERVER', $base . getHostByName(getHostName()) . $ruta . '/'  );
+
     /* Definimos la ruta alterna para todos los modulos*/
     define('DIR_MODULES', ABSPATH . 'views/modules' );
 

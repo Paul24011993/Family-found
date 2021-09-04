@@ -9,11 +9,11 @@
         enqueue_style('adminbag_main_css', SERVER_URL . 'assets/css/animate.css', '1.0', 'all');
         enqueue_style('adminbag_main_css', SERVER_URL . 'assets/css/main.css', '1.0', 'all');
         enqueue_style('aqua_black_theme_css', SERVER_URL . 'assets/css/aqua-black.css', '1.0', 'all');
-        enqueue_style('sweetalert2', SERVER_URL . 'assets/css/sweetalert2.css', '1.0', 'all');
+        enqueue_style('sweetalert2', SERVER_URL . 'assets/css/sweetalert.css', '1.0', 'all');
         enqueue_style('font-awesome.min', SERVER_URL . 'assets/css/font-awesome.min.css', '1.0', 'all');
         enqueue_style('adminbagdemo', SERVER_URL . 'assets/css/adminbagdemo.css', '1.0', 'all');
 
-
+/*
         if(is_page('profiles')){
             enqueue_style('buttons_dataTables', SERVER_URL . 'assets/css/buttons.dataTables.min.css', '1.0', 'all');
             enqueue_style('dataTables_bootstrap', SERVER_URL . 'assets/css/dataTables.bootstrap.min.css', '1.0', 'all');
@@ -66,16 +66,21 @@
             enqueue_style('responsive_dataTables', SERVER_URL . 'assets/css/responsive.dataTables.min.css', '1.0', 'all');
             enqueue_style('fixedHeader_dataTables', SERVER_URL . 'assets/css/fixedHeader.dataTables.min.css', '1.0', 'all');
         }
-
+*/
 
         enqueue_style('style_fixed', SERVER_URL . 'assets/css/style-fixed.css', '1.0', 'all');
     }
 
     function register_script() {
+        global $viewsControllers;
+        $func_page = $viewsControllers->get_views_controllers();
+
         enqueue_script('jquery', SERVER_URL . 'assets/js/vendor/jquery.min.js', '1.0');
         enqueue_script('Bootstrap_js', SERVER_URL . 'assets/js/vendor/bootstrap.min.js', '1.0');
+        enqueue_script('query_validate', SERVER_URL . 'assets/js/jquery.validate.js', '1.0');
+        
         enqueue_script('function_login', SERVER_URL . 'assets/js/function_login.js', '1.0');
-        enqueue_script('sweetalert2', SERVER_URL . 'assets/js/sweetalert2.min.js', '1.0');
+        enqueue_script('sweetalert2', SERVER_URL . 'assets/js/sweetalert.js', '1.0');
         enqueue_script('jquery_mobile', SERVER_URL . 'assets/js/vendor/jquery.mobile.custom.min.js', '1.0');
         enqueue_script('jquery_slimscroll', SERVER_URL . 'assets/js/vendor/jquery.slimscroll.js', '1.0');
         enqueue_script('jquery-key-restrictions', SERVER_URL . 'assets/js/jquery-key-restrictions.js', '1.0');
@@ -87,10 +92,15 @@
             enqueue_script('main_function_ajax', SERVER_URL . 'assets/js/main_function_ajax.js', '1.0');
         }
 
-        if(is_page('forgotPassword', true)){
+        if($func_page == 'forgotPassword'){
             enqueue_script('forgotPassword', SERVER_URL . 'assets/js/forgotPassword.js', '1.0');
         }
-
+        if($func_page == 'changePassword'){
+            enqueue_script('changePassword', SERVER_URL . 'assets/js/changePassword.js', '1.0');
+        }
+   
+        
+/*
         if(is_page('profiles')){
             enqueue_script('jquery_dataTables', SERVER_URL . 'assets/js/vendor/jquery.dataTables.js', '1.0');
             enqueue_script('dataTables_bootstrap', SERVER_URL . 'assets/js/vendor/dataTables.bootstrap.min.js', '1.0');
@@ -184,7 +194,7 @@
             enqueue_script('dataTables_bootstrap', SERVER_URL . 'assets/js/vendor/dataTables.bootstrap.min.js', '1.0');
             enqueue_script('moment', SERVER_URL . 'assets/js/vendor/lib/moment.min.js', '1.0'); 
         }
-
+*/
         
         /*
         enqueue_script('functions_main', SERVER_URL . 'assets/js/functions.js', '1.0');*/
