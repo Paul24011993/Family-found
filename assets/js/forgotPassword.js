@@ -18,7 +18,7 @@ $(document).ready(function(){
 			if(data_server.data){
 
 				if(data_server.data.USU_SOLICITUD_CLAVE == 1){
-					swal("Envío cancelado", "Ya enviamos el codigo a su correo electronico ", "error");
+					swal("Envío cancelado", "Ya enviamos el codigo a su correo electrónico ", "error");
 					return false;
 				}
 

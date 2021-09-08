@@ -40,6 +40,8 @@
 					$content = "forgotPassword";
 				} else if($views == "changePassword"){
 					$content = "changePassword";
+				} else if($views == "resetPassword"){
+					$content = "resetPassword";
 				} else{
 					$content = "404";
 			}
@@ -48,7 +50,7 @@
 
 		public function get_page_template($page){
 			$page_template = "";
-			$page_list = array("login", "404", "forgotPassword", "changePassword", "ingresarRandom");
+			$page_list = array("login", "404", "forgotPassword", "changePassword", "resetPassword");
 
 			if(in_array($page, $page_list)){
 				$page_template = self::get_content_page($page, $page_list);

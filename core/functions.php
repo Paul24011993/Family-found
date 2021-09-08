@@ -95,8 +95,15 @@
         if($func_page == 'forgotPassword'){
             enqueue_script('forgotPassword', SERVER_URL . 'assets/js/forgotPassword.js', '1.0');
         }
+        
         if($func_page == 'changePassword'){
             enqueue_script('changePassword', SERVER_URL . 'assets/js/changePassword.js', '1.0');
+            enqueue_script('strength', SERVER_URL . 'assets/js/strength.js', '1.0');
+        }
+
+        if($func_page == 'resetPassword'){
+            enqueue_script('resetPassword', SERVER_URL . 'assets/js/resetPassword.js', '1.0');
+            enqueue_script('strength', SERVER_URL . 'assets/js/strength.js', '1.0');
         }
    
         

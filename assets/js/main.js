@@ -386,6 +386,18 @@ function eraseCookie(name) {
     createCookie(name, "", -1);
 }
 
+function isExistCookie(name) {
+
+    var name = getCookie(name);
+    if (name == "" || name == null) {
+        // La cookie existe.
+        return false;
+    }else{
+        // La cookie no existe.
+        return true;
+    }
+}
+
 function view_all_permissions(permissions, get_function) {
     let id_profile = getCookie('id_profile');
 

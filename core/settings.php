@@ -24,12 +24,12 @@
     function get_body_class( $class = '' ) {
         
         $classes = array();
-        $page_list = array("login", "forgotPassword", "changePassword", "ingresarRandom", "404");
+        $page_list = array("login", "forgotPassword", "changePassword", "resetPassword", "404");
 
         if(in_array($class, $page_list)){
             if ( $class == 'login' ) {
                 $classes[] = 'login-layout-full login';
-            }else if ( $class == 'forgotPassword' || $class == 'changePassword' ) {
+            }else if ( $class == 'forgotPassword' || $class == 'changePassword' || $class == 'resetPassword' ) {
                 $classes[] = 'login-layout-full';
             }else if ( $class == '404' ) {
                 $classes[] = 'gray-bg';

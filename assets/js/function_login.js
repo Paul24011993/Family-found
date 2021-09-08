@@ -1,6 +1,10 @@
+
 //header('Content-type: application/json');
 $(document).ready(function(){
 	
+	//localStorage.setItem('intentosPermitidos', 3);
+	var intentosPermitidos = 2;
+
 	$('.Form_login').submit(function(e){
         e.preventDefault();
 		
@@ -19,9 +23,9 @@ $(document).ready(function(){
 			contentType: false,
 			processData: false,
 			success: function (respuesta) {
-			var obj = $.parseJSON(respuesta);
+				var obj = $.parseJSON(respuesta);
+
 			
-			//console.log(obj);
 				if(obj.type == 'success'){
 					var token = obj.data.token;
 					var user_image = obj.data.user_image;
@@ -40,7 +44,7 @@ $(document).ready(function(){
 					setCookie("last_name",last_name,1); 			//set "user_email" cookie, expires in 1 day
 					setCookie("profile",profile,1); 			//set "user_email" cookie, expires in 1 day
 					setCookie("id_profile",id_profile,1); 			//set "user_email" cookie, expires in 1 day
-					
+
 					if (obj.data.user_type === 1){
 						window.location.href = SERVER_URL + "home/";
 					} else if (obj.data.user_type === 2){
@@ -50,7 +54,29 @@ $(document).ready(function(){
 					}
 
 				}else{
-					swal("Error", obj.data, obj.type)
+					if(obj.data == 'USER_BLOCK'){
+						swal('',  'Su usuario se encuentra bloqueado' , obj.type);
+						return false;
+					}
+
+					if(intentosPermitidos == 2){
+						swal(obj.data,  'Tiene ' + intentosPermitidos + ' intentos ' , obj.type);
+						intentosPermitidos--;
+					}else if(intentosPermitidos == 1){
+						swal(obj.data,  'Tiene ' + intentosPermitidos + ' intentos ' , obj.type);
+						intentosPermitidos--;
+					}else if(intentosPermitidos == 0){
+						var user_name = $('#user').val();
+						var password = $('#password').val();
+						
+						$.post(SERVER_API + "Home/login/", { intentos : true, user : user_name, password : password}, function (data) {
+							var data_server_random2 = $.parseJSON(data);
+							if(data_server_random2){
+								swal(obj.data,  'Usuario bloqueado ' , obj.type);
+							}
+						});
+						return false;
+					}
 				}
 			},
 			error: function() {
@@ -79,7 +105,7 @@ $(document).ready(function(){
 			$.ajax({
 				url: SERVER_API + 'Users/logout/' + Token,
 				success: function (data) {
-					console.log(data);
+					//console.log(data);
 					var data_server = $.parseJSON(data);
 					if (data_server.data.logout === "true") {
 						//Delete cookie 
@@ -106,3 +132,4 @@ $(document).ready(function(){
 	});
 		
 });
+

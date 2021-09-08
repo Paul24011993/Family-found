@@ -583,6 +583,72 @@ display: flex;
 flex-flow: row wrap;
 }*/
 
+.strength_meter_pass,
+.strength_meter {
+  height: 5px;
+  width: 100%;
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+.strength_meter p {
+  text-align: right;
+}
+.strength_meter div {
+  height: 5px;
+  width: 0%;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  line-height: 23px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.p_veryweak {
+  color: #f04040;
+}
+.veryweak {
+  background-color: #f04040;
+  border-color: #f04040 !important;
+  width: 20% !important;
+}
+.p_weak {
+  color: #ff853c;
+}
+.weak {
+  background-color: #ff853c;
+  border-color: #ff853c !important;
+  width: 40% !important;
+}
+.p_medium {
+  color: #fc0;
+}
+.medium {
+  background-color: #fc0;
+  border-color: #fc0 !important;
+  width: 60% !important;
+}
+.p_strong {
+  color: #8dff1c;
+}
+.strong {
+  background-color: #8dff1c;
+  border-color: #8dff1c !important;
+  width: 80% !important;
+}
+.p_verystrong {
+  color: #8dff1c;
+}
+.verystrong {
+  background-color: #8dff1c;
+  border-color: #8dff1c !important;
+  width: 100% !important;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
