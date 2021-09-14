@@ -120,7 +120,7 @@
 					</a>
 					<ul class="dropdown-menu dropdown-menu-default">
 						<li> 
-							<a href="<?php echo SERVER_URL; ?>perfil/"> 
+							<a href="<?php echo SERVER_URL; ?>profile/"> 
 								<i class="icon-user"></i> Mi perfil
 							</a>
 						</li>
@@ -130,7 +130,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo SERVER_URL; ?>actualizarClave/"> 
+							<a href="<?php echo SERVER_URL; ?>changePasswordProfile/"> 
 								<i class="icon-envelope-open"></i>Cambiar Contraseña 
 							</a>
 						</li>

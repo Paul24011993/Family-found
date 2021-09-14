@@ -64,5 +64,4 @@ $(document).ready(function(){
 				}
 			});
 		});
-// $2y$10$.Zv.A.YapQQixOLR232tZug9sL1pF8d2Abl.eXwQbIi7RJeOoQTxW
 });

@@ -3219,7 +3219,8 @@ Page Sidebar
 .page-content-wrapper .page-content {
   margin-left: 160px;
   margin-top: 0;
-  min-height: 1200px;
+  /*min-height: 1200px;*/
+  min-height: calc(100vh - 46px);
   padding: 0 10px 10px;
   position: relative;
   transition: all 0.4s ease 0s;
@@ -3612,6 +3613,7 @@ Page Sidebar
   .btn.submit {
   margin-bottom: 8px;
   margin-top: 4px;
+  min-width: auto;
 }
 
 /*------------------------------------------------

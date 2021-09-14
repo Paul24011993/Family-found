@@ -4,6 +4,7 @@
 	
 	/* Guardar en una variable la instancia de la clase viewsControllers. */
 	$viewsLoad = $GLOBALS['viewsControllers']->get_views_controllers();
+
 ?>
 <body <?php body_class($viewsLoad); ?>>		
 	<?php

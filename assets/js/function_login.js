@@ -91,7 +91,7 @@ $(document).ready(function(){
 	$('.btn-exit-system').on('click', function (e) {
 		e.preventDefault();
 		var Token = $(this).attr('href');
-		//console.log(Token);
+		console.log(Token);
 		swal({
 			title: '¿Estas seguro?',
 			text: "la sesión actual se cerrará y deberas iniciar sesión nuevamente",
@@ -100,35 +100,40 @@ $(document).ready(function(){
 			confirmButtonClass: "btn-danger",
 			//cancelButtonColor: '#F44336',
 			confirmButtonText: 'Si, Cerrar!',
-			cancelButtonText: 'No, Cancelar!'
-		}).then(function () {
-			$.ajax({
-				url: SERVER_API + 'Users/logout/' + Token,
-				success: function (data) {
-					//console.log(data);
-					var data_server = $.parseJSON(data);
-					if (data_server.data.logout === "true") {
-						//Delete cookie 
-						document.cookie = "Token_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "user_image=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "user_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "id_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "first_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "last_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-						document.cookie = "id_profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-						window.location.href = SERVER_URL;
-					} else {
-						swal(
-							"Ocurrio un error",
-							"No se pudo cerrar la sesion",
-							"error"
-						);
+			cancelButtonText: 'No, Cancelar!',
+			closeOnConfirm: true
+		}, function(isConfirm) {
+			if (isConfirm) {
+				$.ajax({
+					url: SERVER_API + 'Users/logout/' + Token,
+					success: function (data) {
+						//console.log(data);
+						var data_server = $.parseJSON(data);
+						if (data_server.data.logout === "true") {
+							//Delete cookie 
+							document.cookie = "Token_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "user_image=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "user_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "id_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "first_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "last_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie = "id_profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	
+							window.location.href = SERVER_URL;
+						} else {
+							swal(
+								"Ocurrio un error",
+								"No se pudo cerrar la sesion",
+								"error"
+							);
+						}
 					}
-				}
-			});
+				});
+			}
 		});
+		return false;
+		
 	});
 		
 });

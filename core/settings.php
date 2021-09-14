@@ -36,17 +36,19 @@
             }else if ( $class == 'home' ) {
                 $classes[] = 'page-header-fixed pace-done';
             }else{
-                $classes[] = 'page-header-fixed';
+                $classes[] = 'page-header-fixed pace-running';
             }
-
-            $file_name = basename( $class, '.php' );
-            $classes[] = "{$file_name}-template";
+        }else{
+            $classes[] = 'page-header-fixed pace-running';
         }
+        $file_name = basename( $class, '.php' );
+        $classes[] = "{$file_name}-template";
+
         return array_unique( $classes );
     }
 
     function validate_login_user(){
-        if( !isset( $_COOKIE['Token_user']) ){
+        if( !isset( $_COOKIE['Token_user']) || !isset( $_COOKIE['id_user']) ){
             echo "<script>window.location='".SERVER_URL."';</script>"; 
         }else{
             return true;
@@ -54,7 +56,7 @@
     }
 
     function is_user_logged_in() {
-        if( isset( $_COOKIE['Token_user']) ){
+        if( isset( $_COOKIE['Token_user']) && isset( $_COOKIE['id_user']) ){
             return true;
         }else{
             return false;

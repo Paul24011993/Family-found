@@ -40,8 +40,14 @@
     });
 
     // apply slimScroll 
-    if ($('#business_efect').height()){
+    /*if ($('#business_efect').height()){
         $('body').addClass('profile2-page page-sidebar-closed page-sidebar-fixed  pace-done');
+    }*/
+    
+    if ($('body.profile-template').height()){
+        $('body').addClass('page-sidebar-closed  pace-done');
+        $('.library-menu').addClass('active');
+
     }
     
     var scrollH = $(window).height();

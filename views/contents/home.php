@@ -13,11 +13,11 @@
 	//print_r($json_statistics2);
 	*/
 ?>
-<div class="wrapper-content ">
+<div class="wrapper-content pt-4">
 	<div class="row">
 		<div class="col-md-6 mtop15">
 			<div class="profile-image">
-			<img alt="profile" class="img-circle circle-border m-b-md" src="../assets/images/uploads/<?php echo $_COOKIE['user_image']?>"> </div>
+			<img alt="profile" class="img-circle circle-border m-b-md" src="<?php echo SERVER_URL ?>assets/images/uploads/<?php echo $_COOKIE['user_image']?>"> </div>
 			<div class="profile-info">
 				<div>
 					<div>

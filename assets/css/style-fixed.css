@@ -583,6 +583,32 @@ display: flex;
 flex-flow: row wrap;
 }*/
 
+.page-sidebar-closed .fa {
+  font-size: 18px;
+}
+
+body.profile-template .profile-img-box {
+  background-image: url(../images/login-bg/4.jpg);
+  background-position: center top;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+body.profile-template .profile-img-box::after {
+  background-color: rgba(38, 50, 56, 0.5);
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
 .strength_meter_pass,
 .strength_meter {
   height: 5px;

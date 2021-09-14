@@ -3,15 +3,23 @@
     /* Style sheet */
 
     function register_style_sheet() {
+        global $viewsControllers;
+        $func_page = $viewsControllers->get_views_controllers();
 
         enqueue_style('Bootstrap', SERVER_URL . 'assets/css/bootstrap.min.css', '1.0', 'all');
         enqueue_style('all_buttons', SERVER_URL . 'assets/css/buttons.css', '1.0', 'all');
         enqueue_style('adminbag_main_css', SERVER_URL . 'assets/css/animate.css', '1.0', 'all');
         enqueue_style('adminbag_main_css', SERVER_URL . 'assets/css/main.css', '1.0', 'all');
-        enqueue_style('aqua_black_theme_css', SERVER_URL . 'assets/css/aqua-black.css', '1.0', 'all');
         enqueue_style('sweetalert2', SERVER_URL . 'assets/css/sweetalert.css', '1.0', 'all');
         enqueue_style('font-awesome.min', SERVER_URL . 'assets/css/font-awesome.min.css', '1.0', 'all');
+        enqueue_style('simple_line_icons', SERVER_URL . 'assets/css/simple-line-icons.css', '1.0', 'all');
         enqueue_style('adminbagdemo', SERVER_URL . 'assets/css/adminbagdemo.css', '1.0', 'all');
+        enqueue_style('aqua_black_theme_css', SERVER_URL . 'assets/css/aqua-black.css', '1.0', 'all');
+        enqueue_style('main_media', SERVER_URL . 'assets/css/main.media.css', '1.0', 'all');
+        
+        if(basename( $func_page, '.php') == 'profile'){
+            enqueue_style('profile', SERVER_URL . 'assets/css/profile2.css', '1.0', 'all');
+        }
 
 /*
         if(is_page('profiles')){
@@ -95,7 +103,7 @@
         if($func_page == 'forgotPassword'){
             enqueue_script('forgotPassword', SERVER_URL . 'assets/js/forgotPassword.js', '1.0');
         }
-        
+
         if($func_page == 'changePassword'){
             enqueue_script('changePassword', SERVER_URL . 'assets/js/changePassword.js', '1.0');
             enqueue_script('strength', SERVER_URL . 'assets/js/strength.js', '1.0');
@@ -104,6 +112,10 @@
         if($func_page == 'resetPassword'){
             enqueue_script('resetPassword', SERVER_URL . 'assets/js/resetPassword.js', '1.0');
             enqueue_script('strength', SERVER_URL . 'assets/js/strength.js', '1.0');
+        }
+
+        if(basename( $func_page, '.php') == 'profile'){
+            enqueue_script('UserProfile', SERVER_URL . 'assets/js/UserProfile/functions_update_users_profile.js', '1.0');
         }
    
         

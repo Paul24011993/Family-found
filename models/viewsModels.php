@@ -5,6 +5,9 @@
 		protected function get_views_models($views){
 			$menuList = array(
 				"home",
+				"profile",
+				"changePasswordProfile",
+
 				"users",
 				"addUsers",
 				"updateUser",
